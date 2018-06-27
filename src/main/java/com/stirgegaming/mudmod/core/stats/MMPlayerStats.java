@@ -15,6 +15,10 @@ public class MMPlayerStats {
     public int deaths;
     public int mobkills;
     public float steps;
+    public float fallen;
+    public float swum;
+    public float sailed;
+    public int fishcaught;
 
     public void setDeaths(int x) {
         deaths = x;
@@ -24,14 +28,37 @@ public class MMPlayerStats {
         mobkills = x;
     }
 
-    public void setSteps(int x) {
+    public void setSteps(int x)
+    {
         steps = x/100f;
     }
 
+    public void setFallen(int x)
+    {
+        fallen = x/100f;
+    }
+
+    public void setSwum(int x)
+    {
+        swum = x/100f;
+    }
+    public void setSailed(int x)
+    {
+        sailed = x/100f;
+    }
+
+    public void setFishcaught(int x)
+    {
+        fishcaught = x;
+    }
     public void GetPlayerStats( EntityPlayerMP player) {
         setDeaths(player.getStatFile().readStat(StatList.DEATHS));
         setMobKills(player.getStatFile().readStat(StatList.MOB_KILLS));
         setSteps(player.getStatFile().readStat(StatList.WALK_ONE_CM));
+        setFallen(player.getStatFile().readStat(StatList.FALL_ONE_CM));
+        setSwum(player.getStatFile().readStat(StatList.SWIM_ONE_CM));
+        setFishcaught(player.getStatFile().readStat(StatList.FISH_CAUGHT));
+        setSailed(player.getStatFile().readStat(StatList.BOAT_ONE_CM));
     }
 
     public void WritePlayerStats( EntityPlayerMP player ) {
@@ -45,6 +72,10 @@ public class MMPlayerStats {
             bw.write( "<deaths>"+deaths+"</deaths>");
             bw.write( "<mobkills>"+mobkills+"</mobkills>");
             bw.write( "<steps>"+steps+"</steps>");
+            bw.write( "<fallen>"+fallen+"</fallen>");
+            bw.write( "<swum>"+swum+"</swum>");
+            bw.write( "<fishcaught>"+fishcaught+"</fishcaught>");
+            bw.write( "<sailed>"+sailed+"</sailed>");
             bw.write( "</mmstats>");
             bw.newLine();
 
