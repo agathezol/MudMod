@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mudmod",
+  "name": "Mud Mod",
+  "description": "Making Minecraft More Mudlike!",
+  "version": "1.0",
+  "mcversion": "${mcversion}",
+  "url": "http://www.stirgegaming.com/MudMod",
+  "updateUrl": "",
+  "authorList": ["Stirge Gaming"],
+  "credits": "Many thanks to the Lost Dorks for brainstorming, testing and hours of play."
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
