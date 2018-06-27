@@ -1,18 +1,15 @@
 package com.stirgegaming.mudmod;
 
-import com.stirgegaming.mudmod.core.event.EventsHandler;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import com.stirgegaming.mudmod.core.events.EventsHandler;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.File;
 
 @Mod(modid = MudMod.MODID, name = MudMod.NAME, version = MudMod.VERSION)
 public class MudMod
@@ -21,12 +18,11 @@ public class MudMod
     public static final String NAME = "Mud Mod";
     public static final String VERSION = "1.0";
 
-    private static Logger logger;
+    public static final Logger logger = LogManager.getLogger(MudMod.MODID);
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        logger = event.getModLog();
     }
 
     @EventHandler
@@ -39,7 +35,16 @@ public class MudMod
 
     @Mod.EventHandler
     public void load( FMLInitializationEvent event ) {
+        // register our event handlers
         MinecraftForge.EVENT_BUS.register( new EventsHandler() );
+
+        // create the storage directory for our mod
+        File directory = new File("MudMod");
+        if( !directory.exists()) {
+            if( directory.mkdir() ) {
+                logger.error("Could not create directory: MudMod");
+            }
+        }
     }
 
 }
