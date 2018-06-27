@@ -23,6 +23,8 @@ public class MudMod
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        ModItems.init();
+        ModRecipes.init();
     }
 
     @EventHandler

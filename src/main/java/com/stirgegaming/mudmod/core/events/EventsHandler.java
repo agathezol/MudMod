@@ -25,7 +25,7 @@ public class EventsHandler {
                 for( EntityPlayer e : ((EntityPlayerMP)player).getServerWorld().playerEntities )  {
                     e.sendMessage( new TextComponentString( player.getName()+" "+
                             ChatFormatting.RED+"died"+ChatFormatting.WHITE+" for the "+
-                            StringUtils.ordinal(mmps.deaths)+ " time having "+ChatFormatting.GREEN+"destroyed"+ChatFormatting.WHITE+
+                            StringUtils.ordinal(mmps.deaths+1)+ " time having "+ChatFormatting.GREEN+"destroyed"+ChatFormatting.WHITE+
                             " "+mmps.mobkills+" monsters."));
                 }
                 mmps.WritePlayerStats(((EntityPlayerMP)player));

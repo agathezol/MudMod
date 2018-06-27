@@ -29,7 +29,7 @@ public class MMPlayerStats {
     }
 
     public void GetPlayerStats( EntityPlayerMP player) {
-        setDeaths(player.getStatFile().readStat(StatList.DEATHS)+1);
+        setDeaths(player.getStatFile().readStat(StatList.DEATHS));
         setMobKills(player.getStatFile().readStat(StatList.MOB_KILLS));
         setSteps(player.getStatFile().readStat(StatList.WALK_ONE_CM));
     }
