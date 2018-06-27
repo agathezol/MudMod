@@ -43,7 +43,7 @@ public class MudMod
         // create the storage directory for our mod
         File directory = new File("MudMod");
         if( !directory.exists()) {
-            if( directory.mkdir() ) {
+            if( !directory.mkdir() ) {
                 logger.error("Could not create directory: MudMod");
             }
         }
